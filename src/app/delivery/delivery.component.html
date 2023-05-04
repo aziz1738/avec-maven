@@ -1,0 +1,53 @@
+<form (ngSubmit)="addDelivery()">
+  <label>Recipient Name:</label>
+  <input type="text" [(ngModel)]="delivery.recipientName" name="recipientName" required>
+
+  <label>Recipient Address:</label>
+  <input type="text" [(ngModel)]="delivery.recipientAddress" name="recipientAddress" required>
+
+  <label>Recipient Phone:</label>
+  <input type="text" [(ngModel)]="delivery.recipientPhone" name="recipientPhone" required>
+
+  <label>Delivery Time:</label>
+  <input type="date" [(ngModel)]="delivery.deliveryTime" name="deliveryTime" [value]="todayDate" required>
+
+  <button type="submit">Add Delivery</button>
+</form>
+
+<table>
+  <tr>
+    <th>Recipient Name</th>
+    <th>Recipient Address</th>
+    <th>Recipient Phone</th>
+    <th>Delivery Time</th>
+    <th>delete</th>
+    <th>update</th>
+  </tr>
+  <tr *ngFor="let d of deliveries">
+    <td>{{d.recipientName}}</td>
+    <td>{{d.recipientAddress}}</td>
+    <td>{{d.recipientPhone}}</td>
+    <td>{{d.deliveryTime}}</td>
+    <td><button (click)="deleteDelivery(d)">delete</button></td>
+    <td><button (click)="recupererDelivery(d)">update</button></td>
+  </tr>
+</table>
+
+<div>
+  
+  <form (ngSubmit)="updateDelivery()">
+    <label>Recipient Name:</label>
+    <input type="text" [(ngModel)]="deliveryUpdate.recipientName" name="recipientName" required>
+  
+    <label>Recipient Address:</label>
+    <input type="text" [(ngModel)]="deliveryUpdate.recipientAddress" name="recipientAddress" required>
+  
+    <label>Recipient Phone:</label>
+    <input type="text" [(ngModel)]="deliveryUpdate.recipientPhone" name="recipientPhone" required>
+  
+    <label>Delivery Time:</label>
+    <input type="date" [(ngModel)]="deliveryUpdate.deliveryTime" name="deliveryTime" [value]="todayDate" required>
+  
+    <button type="submit">update Delivery</button>
+  </form>
+  </div>
